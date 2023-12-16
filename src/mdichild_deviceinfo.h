@@ -27,7 +27,7 @@
 #include <QLabel>
 #include "mdichild_base.h"
 #include "utils_common.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "vrulemanager.h"
 
 struct pDevice {

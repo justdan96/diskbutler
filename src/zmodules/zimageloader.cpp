@@ -53,7 +53,7 @@ bool ZImageLoader::Parse(const QString &imagePath, bool isImage)
         }
 
         qDebug() << "Set Read Drive. Possible problem here";
-        res = ::SetReadDevice(imageDrive.at(0).toLatin1());
+        res = ::SetReadDevice((TCHAR*)imageDrive.at(0).toLatin1());
 
         if(res!=BS_SDK_ERROR_NO)
         {

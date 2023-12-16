@@ -23,7 +23,7 @@
 #include "qfilesysitem.h"
 #include <QList>
 
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 
 class QFileSysISO9660Item : public QFileSysItem
 {

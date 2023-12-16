@@ -19,7 +19,7 @@
 
 #include <QtWidgets>
 #include "mdichild_deviceinfo.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "mainwindow.h"
 #include "settingspages.h"
 
@@ -132,7 +132,7 @@ void MdiChildDeviceInfo::readDeviceInfoEx()
     TCHAR productId_[17];
     TCHAR productRevision_[5];
 
-    ::SetBurnDevice( strBurnDrive.at(0).toLatin1() );
+    ::SetBurnDevice( (TCHAR*)strBurnDrive.at(0).toLatin1() );
     ::GetDeviceInformation( BS_CURRENT_DEVICE, vendorId_, productId_, productRevision_ );
 
     SExtendedDeviceInformation	infoEx;

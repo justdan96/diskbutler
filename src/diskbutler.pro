@@ -49,13 +49,13 @@ HEADERS_CONTROLS = \
 SOURCES_CONTROLS = \
     controls/devicecomboex.cpp \
     controls/qtwaitingspinner.cpp
-HEADERS_FOXSDK = \
-    foxsdk/bass.h \
-    foxsdk/tchar.h \
-    foxsdk/FoxSDKBurningLib.h \
-    foxsdk/FoxSDKExport.h \
-    foxsdk/FoxSDKDefinitions.h \
-    foxsdk/FoxSDKUnicode.h
+HEADERS_ISOSDK = \
+    isosdk/bass.h \
+    isosdk/tchar.h \
+    isosdk/IsoSDKBurningLib.h \
+    isosdk/IsoSDKExport.h \
+    isosdk/IsoSDKDefinitions.h \
+    isosdk/IsoSDKUnicode.h
 HEADERS_NODES = \
     nodes/qdataitem.h \
     nodes/qdiskitem.h \
@@ -180,7 +180,7 @@ SOURCES += $${SOURCES_CONTROLS} \
 
 
 HEADERS += $${HEADERS_CONTROLS} \
-        $${HEADERS_FOXSDK} \
+        $${HEADERS_ISOSDK} \
         $${HEADERS_NODES} \
         $${HEADERS_UTILS} \
         $${HEADERS_RIBBON} \
@@ -193,8 +193,8 @@ HEADERS += $${HEADERS_CONTROLS} \
         commontreewidget.h \
         audiotaginfo.h \
         configdialog.h \
-        foxsdk/bassmix.h \
-        foxsdk/tags.h \
+        isosdk/bassmix.h \
+        isosdk/tags.h \
         mainwindow.h \
         mdichild_base.h \
         mdichild_deviceinfo.h \
@@ -230,21 +230,21 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     diskbutler.qrc
 
-INCLUDEPATH += $$PWD $$PWD/project $$PWD/nodes $$PWD/strategy $$PWD/foxsdk $$PWD/utils $$PWD/dialogs $$PWD/model
+INCLUDEPATH += $$PWD $$PWD/project $$PWD/nodes $$PWD/strategy $$PWD/isosdk $$PWD/utils $$PWD/dialogs $$PWD/model
 INCLUDEPATH += $$PWD $$PWD/zmodules $$PWD/ribbon $$PWD/controls $$PWD/hex
-DEPENDPATH += $$PWD/foxsdk
+DEPENDPATH += $$PWD/isosdk
 
-win32: LIBS += -L$$PWD/foxsdk/ -lFoxSDKCore
-win32: PRE_TARGETDEPS += $$PWD/foxsdk/FoxSDKCore.lib
+win32: LIBS += -L$$PWD/isosdk/ -lIsoSDKCore
+win32: PRE_TARGETDEPS += $$PWD/isosdk/IsoSDKCore.lib
 
 unix:!macx {
-LIBS += -lm -ldl -L$$PWD/foxsdk/ -lFoxSDKCore
-PRE_TARGETDEPS += $$PWD/foxsdk/libFoxSDKCore.so
+LIBS += -lm -ldl -L$$PWD/isosdk/ -l:libIsoSDKCore64.2.31.so
+PRE_TARGETDEPS += $$PWD/isosdk/libIsoSDKCore64.2.31.so
 }
 
 macx:{
-LIBS += -L$$PWD/foxsdk/ -lFoxSDKCore
-MediaFiles.files += FoxSDK/libFoxSDKCore.dylib
+LIBS += -L$$PWD/isosdk/ -lIsoSDKCore64.2.31
+MediaFiles.files += IsoSDK/libIsoSDKCore.dylib
 MediaFiles.files += diskbutler_de.qm
 MediaFiles.path = Contents/MacOS
 QMAKE_BUNDLE_DATA += MediaFiles

@@ -21,7 +21,7 @@
 #define MESSANGER_H
 
 #include <QtWidgets>
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 
 bool showDiskbutlerMessage(int32 nError, QWidget* parent);
 

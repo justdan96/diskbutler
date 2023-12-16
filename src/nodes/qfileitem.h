@@ -21,7 +21,7 @@
 #define QFILEITEM_H
 
 #include "qdataitem.h"
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 #include "utils_common.h"
 
 class QFileItem : public QDataItem

@@ -22,7 +22,7 @@
 
 #include <QIcon>
 #include "commontreewidget.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 
 class ZImageLoader
 {

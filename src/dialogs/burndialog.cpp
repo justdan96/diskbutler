@@ -470,7 +470,7 @@ burnDialog::burnDialog( int sdkJobType, DBJobCommands *jobCommands, CommonTreeWi
 
         addLogItem( tr( "Set burn device: " ) + controlParams->burnDevice, 0 );
 
-        int32 res = ::SetBurnDevice(controlParams->burnDevice.at(0).toLatin1());
+        int32 res = ::SetBurnDevice((TCHAR*)controlParams->burnDevice.at(0).toLatin1());
         if (res != BS_SDK_ERROR_NO)
         {
             onHandleError( res );
@@ -678,14 +678,14 @@ void burnDialog::step9Project()
             return;
         }
         QString strDriveName = "#";
-        nError = ::SetReadDevice(strDriveName.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
             return;
         }
     }else{
-        nError = ::SetReadDevice(strSource.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strSource.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
@@ -754,14 +754,14 @@ void burnDialog::extractAudioTrack()
             return;
         }
         QString strDriveName = "#";
-        nError = ::SetReadDevice(strDriveName.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
             return;
         }
     }else{
-        nError = ::SetReadDevice(strSource.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strSource.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
@@ -855,14 +855,14 @@ void burnDialog::step6Project()
             return;
         }
         QString strDriveName = "#";
-        nError = ::SetReadDevice(strDriveName.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
             return;
         }
     }else{
-        nError = ::SetReadDevice(strSource.at(0).toLatin1());
+        nError = ::SetReadDevice((TCHAR*)strSource.at(0).toLatin1());
         if (nError != BS_SDK_ERROR_NO)
         {
             onHandleError(nError);
@@ -960,7 +960,7 @@ void burnDialog::burnDiskImage()
     }
 
     addLogItem(tr("Set burn device: ")+strDriveName,0);
-    res = ::SetBurnDevice(strDriveName.at(0).toLatin1());
+    res = ::SetBurnDevice((TCHAR*)strDriveName.at(0).toLatin1());
     if (res != BS_SDK_ERROR_NO)
     {
         onHandleError(res);
@@ -1055,7 +1055,7 @@ void burnDialog::step3Project()
 
     addLogItem(tr("Set read device: ")+strDriveName,0);
 
-    int32 res = ::SetReadDevice(strDriveName.at(0).toLatin1());
+    int32 res = ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
     if (res != BS_SDK_ERROR_NO)
     {
         onHandleError(res);
@@ -1064,7 +1064,7 @@ void burnDialog::step3Project()
 
     addLogItem(tr("Set burn device: ")+strBurnerName,0);
 
-    res = ::SetBurnDevice(strBurnerName.at(0).toLatin1());
+    res = ::SetBurnDevice((TCHAR*)strDriveName.at(0).toLatin1());
     if (res != BS_SDK_ERROR_NO)
     {
         onHandleError(res);
@@ -1072,7 +1072,7 @@ void burnDialog::step3Project()
     }
 
     if(strDriveName.at(0)==strBurnerName.at(0)){
-        addLogItem(tr("Fatal error. Source and target device are teh same"),0);
+        addLogItem(tr("Fatal error. Source and target device are the same"),0);
         return;
     }
 
@@ -1173,7 +1173,7 @@ void burnDialog::startBurnProject(QString burnDrive)
 
     qDebug( "Set Burn Device" );
 
-    res = ::SetBurnDevice( strDriveName.at( 0 ).toLatin1() );
+    res = ::SetBurnDevice((TCHAR*)strDriveName.at(0).toLatin1());
     if ( res != BS_SDK_ERROR_NO )
     {
         onHandleError( res );
@@ -1538,7 +1538,7 @@ void burnDialog::createImageJob()
 
     addLogItem( QString( "Set read device %1" ).arg( strDriveName ), 0 );
 
-    int32 res = ::SetReadDevice( strDriveName.at(0).toLatin1() );
+    int32 res = ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
     if ( res != BS_SDK_ERROR_NO )
     {
         onHandleError( res );

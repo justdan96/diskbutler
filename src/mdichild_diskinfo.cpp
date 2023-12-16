@@ -19,7 +19,7 @@
 
 #include <QtWidgets>
 #include "mdichild_diskinfo.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "mainwindow.h"
 #include "settingspages.h"
 #include "messanger.h"
@@ -249,8 +249,8 @@ void MdiChildDiskInfo::readDiskInfo()
     pAudio stAudioInfo;
     stAudioInfo.isAudio = 0;
 
-    int32 nError = ::SetBurnDevice(getBurnDrive().at(0).toLatin1());
-    nError = ::SetReadDevice(getBurnDrive().at(0).toLatin1());
+    int32 nError = ::SetBurnDevice((TCHAR*)getBurnDrive().at(0).toLatin1());
+    nError = ::SetReadDevice((TCHAR*)getBurnDrive().at(0).toLatin1());
     if (nError != BS_SDK_ERROR_NO){
         qDebugAusgabeSDK(nError, "SetDevice");
         return;
