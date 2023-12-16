@@ -23,7 +23,7 @@
 #include "qdataitem.h"
 #include <QList>
 
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 
 class QSessionItem : public QDataItem
 {

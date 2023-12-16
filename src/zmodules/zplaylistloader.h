@@ -23,7 +23,7 @@
 #include <QIcon>
 #include "commontreewidget.h"
 #include "qdataitem.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include <vector>
 
 class ZPlaylistItem

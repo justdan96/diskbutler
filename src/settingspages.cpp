@@ -583,7 +583,7 @@ bool PluginPage::readPlugins()
     //Exlude wird nicht gealden oder angezeigt.
     //Problem ist FIlename und FIlepath
 
-    QDirIterator it(QCoreApplication::applicationDirPath()+"/foxsdk/plugins",QDir::NoDotAndDotDot|QDir::AllEntries);
+    QDirIterator it(QCoreApplication::applicationDirPath()+"/isosdk/plugins",QDir::NoDotAndDotDot|QDir::AllEntries);
     while (it.hasNext()) {
         it.next();
 
@@ -616,7 +616,7 @@ void PluginPage::saveSettings()
     {
         QListWidgetItem* item = mListWidget->item(i);
         if(item->checkState()==Qt::Unchecked){
-            QString listItem = QCoreApplication::applicationDirPath()+"/foxsdk/plugins/" + item->text();
+            QString listItem = QCoreApplication::applicationDirPath()+"/isosdk/plugins/" + item->text();
             excludeList.append(listItem);
         }
     }

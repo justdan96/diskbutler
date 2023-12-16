@@ -21,7 +21,7 @@
 #define QFOLDERITEM_H
 
 #include "qdataitem.h"
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 #include "utils_common.h"
 
 class QFolderItem : public QDataItem

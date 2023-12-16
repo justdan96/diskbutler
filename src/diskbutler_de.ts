@@ -570,8 +570,8 @@
     </message>
     <message>
         <location filename="mainwindow.cpp" line="85"/>
-        <source>FoxSDK reports: %1</source>
-        <translation type="unfinished">FoxSDK Bericht: %1</translation>
+        <source>IsoSDK reports: %1</source>
+        <translation type="unfinished">IsoSDK Bericht: %1</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="86"/>

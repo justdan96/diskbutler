@@ -22,7 +22,7 @@
 
 #include "qdataitem.h"
 
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 
 class QFileSysItem : public QDataItem
 {

@@ -83,13 +83,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 #if defined (LINUX)
-    QString mLicense = "IQJH1V-6Y1ZA2-5NIAGR-ANJQNA-BMBNSO";
+    QString mLicense = "1HV4T0-LQ1RAS-DIBA8J-AT9UG1-XI2VI6";
 #endif
 #if defined (MAC)
-    QString mLicense = "IXJNQ9-J9FYAD-KWDAX5-ATBLQA-9LMJVZ";
+    QString mLicense = "JSV752-7RENAW-HHPAOP-ARHJ61-ID2OTC";
 #endif
 #if defined (WIN32)
-    QString mLicense = "KLJWVC-IXPJAP-35LAUI-AZ0G5A-2LB5KU";
+    QString mLicense = "48V0RM-EP3HAP-XFDARV-AG2ML1-Q72GJ8";
 #endif
 
     const TCHAR *pLicense = convertToFoxValue( mLicense );
@@ -97,7 +97,7 @@ MainWindow::MainWindow(QWidget *parent) :
     delete [] pLicense;
 
     if(res!=0){
-        QString result = tr("FoxSDK reports: %1").arg( res );
+        QString result = tr("IsoSDK reports: %1").arg( res );
         QMessageBox::information( this, tr("Information"), result );
     }
 
@@ -399,7 +399,7 @@ void MainWindow::loadPlugins()
 {
     QStringList excludeList = ConfigurationPage::mSettings.value("excludeplugins",0).toStringList();
 
-    QDirIterator it(QCoreApplication::applicationDirPath()+"/foxsdk/plugins",QDir::NoDotAndDotDot|QDir::AllEntries);
+    QDirIterator it(QCoreApplication::applicationDirPath()+"/isosdk/plugins",QDir::NoDotAndDotDot|QDir::AllEntries);
     while (it.hasNext()) {
         it.next();
 
@@ -1964,7 +1964,7 @@ void MainWindow::clickedSelBootImagePath()
 //##############################################################################################################
 
 //##############################################################################################################
-//FoxSDK Functions
+//IsoSDK Functions
 //##############################################################################################################
 
 void MainWindow::unLockBurnDevice()
@@ -1982,11 +1982,11 @@ void MainWindow::closeTray(bool readDevice)
     int32 res = -1;
     if( readDevice == true ){
         strDriveName = listReadDevicesWidget->currentText();
-        ::SetReadDevice(strDriveName.at(0).toLatin1());
+        ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
         res = ::CloseDevice( BS_READ_DEVICE );
     }else{
         strDriveName = listBurnDevicesWidget->currentText();
-        ::SetBurnDevice(strDriveName.at(0).toLatin1());
+        ::SetBurnDevice((TCHAR*)strDriveName.at(0).toLatin1());
         res = ::CloseDevice( BS_CURRENT_DEVICE );
     }
 
@@ -2002,11 +2002,11 @@ void MainWindow::ejectTray(bool readDevice)
     int32 res = -1;
     if( readDevice == true ){
         strDriveName = listReadDevicesWidget->currentText();
-        ::SetReadDevice(strDriveName.at(0).toLatin1());
+        ::SetReadDevice((TCHAR*)strDriveName.at(0).toLatin1());
         res = ::EjectDevice( BS_READ_DEVICE );
     }else{
         strDriveName = listBurnDevicesWidget->currentText();
-        ::SetBurnDevice(strDriveName.at(0).toLatin1());
+        ::SetBurnDevice((TCHAR*)strDriveName.at(0).toLatin1());
         res = ::EjectDevice( BS_CURRENT_DEVICE );
     }
 
@@ -2030,7 +2030,7 @@ void MainWindow::onHandleError( int32 res )
 }
 
 //##############################################################################################################
-//End FoxSDK Functions
+//End IsoSDK Functions
 //##############################################################################################################
 
 //##############################################################################################################
@@ -2343,7 +2343,7 @@ void MainWindow::onNewVersionAvail(QString newVersion)
     //----------------------------------------------------------------------------------------------
     //Additional Infos PHP Version file with json
     /*
-     *     silentFoxSDKActions(9);
+     *     silentIsoSDKActions(9);
     <?php
         $version = $_GET['v'];
 
@@ -2987,7 +2987,7 @@ void MainWindow::mdiAreaActivationTemplate()
  *
  *###################################
  *Usage of Read and Burn Devices
- *The FoxSDK delivers an array of drives.
+ *The IsoSDK delivers an array of drives.
  *ReadDevices and BurnDevices are an different array but currently the same inside the SDK
  *So we need to set the drive names for each Interaction.
  *

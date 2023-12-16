@@ -20,7 +20,7 @@
 #ifndef AUDIOTAGINFO_H
 #define AUDIOTAGINFO_H
 
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 #include <QString>
 
 

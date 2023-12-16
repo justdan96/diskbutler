@@ -2,7 +2,7 @@
 #define BASSDECODE_H
 
 
-#include "FoxSDKDefinitions.h"
+#include "IsoSDKDefinitions.h"
 #include "utils_common.h"
 #include <vector>
 

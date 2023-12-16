@@ -28,7 +28,7 @@
 #endif
 #include <QDateTime>
 #include <QDebug>
-#include "FoxSDKExport.h"
+#include "IsoSDKExport.h"
 #include "vrulemanager.h"
 
 //We have changed it from slash to backslash. We keep everything backslash here.

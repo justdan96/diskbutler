@@ -26,7 +26,7 @@
 #include <QSplitter>
 #include <QLabel>
 #include "mdichild_base.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "vrulemanager.h"
 #include "qscanboard.h"
 

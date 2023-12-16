@@ -19,7 +19,7 @@
 
 #include <QtWidgets>
 #include "mdichild_hex.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "mainwindow.h"
 #include "settingspages.h"
 #include "messanger.h"
@@ -149,7 +149,7 @@ void MdiChildHex::updateHex()
     int bufferSize = 2352;
     //char *buf = new char[2352];
 
-    int32 ret = ::SetBurnDevice(getBurnDrive().at(0).toLatin1());
+    int32 ret = ::SetBurnDevice((TCHAR*)getBurnDrive().at(0).toLatin1());
     if (ret == BS_SDK_ERROR_NO){
 
         BS_BOOL	bReady = BS_FALSE;

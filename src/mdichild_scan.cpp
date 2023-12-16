@@ -19,7 +19,7 @@
 
 #include <QtWidgets>
 #include "mdichild_scan.h"
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "mainwindow.h"
 #include "settingspages.h"
 #include "messanger.h"
@@ -131,7 +131,7 @@ void MdiChildScan::startScanThread(int offsetSectors, int readSectors)
     scanBoard->startScan(offsetSectors);
     scanBoard->isActive=true;
 
-    int32 ret = ::SetBurnDevice(getBurnDrive().at(0).toLatin1());
+    int32 ret = ::SetBurnDevice((TCHAR*)getBurnDrive().at(0).toLatin1());
     if (ret != BS_SDK_ERROR_NO){
         qDebugAusgabeSDK(ret, "SetBurnDevice");
         return;
@@ -218,7 +218,7 @@ void MdiChildScan::analyzeDisc()
     int dataState = 0;
     int mMaxSize = 0;
 
-    int32 ret = ::SetBurnDevice(getBurnDrive().at(0).toLatin1());
+    int32 ret = ::SetBurnDevice((TCHAR*)getBurnDrive().at(0).toLatin1());
     if (ret == BS_SDK_ERROR_NO){
         BS_BOOL	bReady = BS_FALSE;
         ret = ::IsDeviceReady(BS_CURRENT_DEVICE, &bReady);

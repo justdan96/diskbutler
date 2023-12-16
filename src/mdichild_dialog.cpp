@@ -28,7 +28,7 @@
 #include "zfileiconprovider.h"
 #include "utils_common.h"
 
-#include "FoxSDKBurningLib.h"
+#include "IsoSDKBurningLib.h"
 #include "zimageloader.h"
 #include "zproject_videodvd.h"
 #include "zproject_bluray.h"
