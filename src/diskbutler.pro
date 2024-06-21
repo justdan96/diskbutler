@@ -238,7 +238,7 @@ win32: LIBS += -L$$PWD/isosdk/ -lIsoSDKCore
 win32: PRE_TARGETDEPS += $$PWD/isosdk/IsoSDKCore.lib
 
 unix:!macx {
-LIBS += -lm -ldl -L$$PWD/isosdk/ -l:libIsoSDKCore64.2.31.so
+LIBS += -lm -ldl -L$$PWD/isosdk/ -L$$PWD/isosdk/plugins/ -l:libIsoSDKCore64.2.31.so
 PRE_TARGETDEPS += $$PWD/isosdk/libIsoSDKCore64.2.31.so
 }
 
